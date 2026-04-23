@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>范姜琳 — 前端工程師履歷</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --accent: #7c5c2e;
+        --accent-light: #f5efe6;
+        --accent-mid: #c49a5a;
+        --text: #1a1a1a;
+        --text-muted: #666;
+        --text-light: #999;
+        --border: #e8e0d4;
+        --bg: #fff;
+        --bg-side: #faf7f2;
+        --tag-bg: #f0ece4;
+        --tag-text: #6b4f2a;
+        --link: #3a6fa8;
+      }
+
+      body {
+        font-family:
+          'Helvetica Neue', Arial, 'PingFang TC', 'Microsoft JhengHei',
+          sans-serif;
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--text);
+        background: #f0ece4;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+        background: var(--bg);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 260px 1fr;
+      }
+
+      /* ── SIDEBAR ── */
+      .sidebar {
+        background: var(--bg-side);
+        padding: 2.5rem 1.5rem;
+        border-right: 1px solid var(--border);
+      }
+
+      .avatar-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent-light);
+        border: 3px solid var(--accent-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+        letter-spacing: -1px;
+      }
+
+      .name {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 2px;
+      }
+
+      .tagline {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-style: italic;
+        line-height: 1.5;
+        margin-top: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        background: #fff;
+        border-left: 2px solid var(--accent-mid);
+        border-radius: 0 4px 4px 0;
+        text-align: left;
+      }
+
+      .side-section {
+        margin-bottom: 1.75rem;
+      }
+
+      .side-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 4px;
+        margin-bottom: 0.75rem;
+      }
+
+      .info-row {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+      }
+
+      .info-label {
+        font-size: 10px;
+        color: var(--text-light);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .info-val {
+        font-size: 13px;
+        color: var(--text);
+        word-break: break-all;
+      }
+
+      .info-val a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      .info-val a:hover {
+        text-decoration: underline;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .tag {
+        background: var(--tag-bg);
+        color: var(--tag-text);
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-weight: 500;
+      }
+
+      .cert-item {
+        font-size: 12px;
+        color: var(--text);
+        padding: 3px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .cert-item::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent-mid);
+        margin-top: 7px;
+        flex-shrink: 0;
+      }
+
+      .lang-row {
+        font-size: 12px;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+
+      .lang-level {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .pref-row {
+        font-size: 12px;
+        color: var(--text);
+        margin-bottom: 5px;
+        display: flex;
+        gap: 6px;
+      }
+
+      .pref-label {
+        color: var(--text-muted);
+        flex-shrink: 0;
+        min-width: 60px;
+      }
+
+      /* ── MAIN ── */
+      .main {
+        padding: 2.5rem 2rem;
+      }
+
+      .main-name {
+        display: none;
+      }
+
+      .section {
+        margin-bottom: 2rem;
+      }
+
+      .section-title {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1rem;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--accent-light);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .section-title::before {
+        content: '';
+        width: 4px;
+        height: 14px;
+        background: var(--accent-mid);
+        border-radius: 2px;
+        display: inline-block;
+      }
+
+      .intro-text {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.8;
+        padding: 0.75rem 1rem;
+        background: var(--accent-light);
+        border-radius: 6px;
+        border-left: 3px solid var(--accent-mid);
+      }
+
+      .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .edu-name {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .edu-dept {
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      .edu-date {
+        font-size: 12px;
+        color: var(--text-light);
+        white-space: nowrap;
+      }
+
+      .job {
+        margin-bottom: 1.75rem;
+        padding-bottom: 1.75rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .job:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 3px;
+      }
+
+      .job-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .job-period {
+        font-size: 11px;
+        color: #fff;
+        background: var(--accent-mid);
+        padding: 2px 8px;
+        border-radius: 20px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-left: 8px;
+      }
+
+      .job-company {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .job-desc {
+        font-size: 13px;
+        color: var(--text);
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .job-desc li {
+        padding: 2px 0 2px 14px;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      .job-desc li::before {
+        content: '·';
+        position: absolute;
+        left: 2px;
+        color: var(--accent-mid);
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      .job-group-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.5px;
+        margin: 10px 0 4px;
+        padding: 2px 7px;
+        background: var(--accent-light);
+        border-left: 2px solid var(--accent-mid);
+        border-radius: 0 4px 4px 0;
+        display: inline-block;
+      }
+
+      .projects-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.5px;
+        margin: 10px 0 6px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+
+      .project-item {
+        background: var(--accent-light);
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .project-name {
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .project-desc {
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin-top: 1px;
+      }
+
+      .ref-box {
+        background: var(--accent-light);
+        border-radius: 8px;
+        padding: 1rem;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .ref-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--accent-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .ref-name {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .ref-role {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+      .ref-contact {
+        font-size: 12px;
+        color: var(--link);
+        margin-top: 2px;
+      }
+
+      .portfolio-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .portfolio-list li a {
+        font-size: 13px;
+        color: var(--link);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .portfolio-list li a::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-right: 1.5px solid var(--link);
+        border-top: 1.5px solid var(--link);
+        transform: rotate(45deg);
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .portfolio-list li a:hover {
+        text-decoration: underline;
+      }
+
+      .portfolio-note {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-left: 4px;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline {
+        position: relative;
+        padding: 0.5rem 0 0.25rem 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .timeline-track {
+        position: relative;
+        height: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        margin: 0 0 1.5rem 0;
+      }
+
+      .timeline-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: linear-gradient(to right, var(--accent-mid), var(--accent));
+        border-radius: 3px;
+      }
+
+      .timeline-dots {
+        position: relative;
+        height: 32px;
+      }
+
+      .tl-dot {
+        position: absolute;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: default;
+      }
+
+      .tl-dot-circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent-mid);
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 1px var(--accent-mid);
+        margin-bottom: 4px;
+        transition: transform 0.15s;
+      }
+
+      .tl-dot:hover .tl-dot-circle {
+        transform: scale(1.4);
+        background: var(--accent);
+      }
+
+      .tl-dot-label {
+        font-size: 9px;
+        color: var(--text-muted);
+        white-space: nowrap;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .tl-dot:hover .tl-dot-label {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .timeline-years {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        color: var(--text-light);
+        margin-top: 4px;
+      }
+
+      /* ── PORTFOLIO CARDS ── */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .portfolio-card {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+
+      .portfolio-card:hover {
+        border-color: var(--accent-mid);
+        background: var(--accent-light);
+      }
+
+      .portfolio-card-header {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .portfolio-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        opacity: 0.6;
+      }
+
+      .portfolio-card-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--link);
+      }
+
+      .portfolio-card-url {
+        font-size: 10px;
+        color: var(--text-light);
+        word-break: break-all;
+      }
+
+      .portfolio-card-note {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .project-grid,
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff !important;
+          padding: 0 !important;
+        }
+        .page {
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          max-width: 100% !important;
+        }
+        .sidebar {
+          background: #faf7f2 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .job-period {
+          background: var(--accent-mid) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .project-item {
+          background: var(--accent-light) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .tag {
+          background: var(--tag-bg) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .intro-text {
+          background: var(--accent-light) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .ref-box {
+          background: var(--accent-light) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        a {
+          color: inherit !important;
+          text-decoration: none !important;
+        }
+        .portfolio-card {
+          border: 1px solid var(--border) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- ══ SIDEBAR ══ -->
+      <aside class="sidebar">
+        <div class="avatar-wrap">
+          <div class="avatar">范姜</div>
+          <div class="name">范姜琳</div>
+          <div class="tagline">
+            「每回害你出錯的，就是那些不假思索而認可的假設。」
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-title">聯絡方式</div>
+          <div class="info-row">
+            <span class="info-label">手機</span>
+            <span class="info-val">0960-559-171</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">英文姓名</span>
+            <span class="info-val">Lin</span>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-title">技術技能</div>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-title">證照</div>
+          <div class="cert-item">乙級電腦軟體應用技術士</div>
+          <div class="cert-item">丙級電腦軟體應用技術士</div>
+          <div class="cert-item">丙級網頁設計技術士</div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-title">語言能力</div>
+          <div class="lang-row">
+            英文 <span class="lang-level">— 聽說讀寫中等</span>
+          </div>
+          <div class="lang-row">
+            台語 <span class="lang-level">— 略懂</span>
+          </div>
+          <div class="lang-row">
+            客語 <span class="lang-level">— 略懂</span>
+          </div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-title">求職條件</div>
+          <div class="pref-row">
+            <span class="pref-label">職稱</span>網頁前端工程師
+          </div>
+          <div class="pref-row">
+            <span class="pref-label">性質</span>全職 / 兼職
+          </div>
+          <div class="pref-row">
+            <span class="pref-label">時段</span>日班 09:00–18:00
+          </div>
+          <div class="pref-row">
+            <span class="pref-label">地點</span>台北市、新北市
+          </div>
+          <div class="pref-row"><span class="pref-label">遠端</span>有意願</div>
+          <div class="pref-row"><span class="pref-label">待遇</span>面議</div>
+        </div>
+
+        <div class="side-section">
+          <div class="side-title">基本資料</div>
+          <div class="pref-row"><span class="pref-label">性別</span>女</div>
+          <div class="pref-row"><span class="pref-label">年齡</span>42 歲</div>
+          <div class="pref-row"><span class="pref-label">就業</span>在職中</div>
+          <div class="pref-row">
+            <span class="pref-label">駕照</span>普通小型車
+          </div>
+        </div>
+      </aside>
+
+      <!-- ══ MAIN CONTENT ══ -->
+      <main class="main">
+        <div class="section">
+          <p class="intro-text">
+            目前是網頁前端工程師，喜歡前端各式各樣的新鮮東西，很樂意繼續投入、繼續學習！具備完整軟體開發流程經驗，從
+            QA、PM
+            到前端工程師，跨角色的歷練讓我在開發時更能站在使用者視角思考。
+          </p>
+        </div>
+
+        <!-- 學歷 -->
+        <div class="section">
+          <div class="section-title">學歷</div>
+          <div class="edu-item">
+            <div>
+              <div class="edu-name">國立政治大學</div>
+              <div class="edu-dept">應用數學系　大學畢業</div>
+            </div>
+            <div class="edu-date">2002/9 – 2007/6</div>
+          </div>
+        </div>
+
+        <!-- 工作經歷 -->
+        <div class="section">
+          <div class="section-title">工作經歷</div>
+
+          <!-- Job 1 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">高級工程師</div>
+              <div class="job-period">2024/10 – 仍在職</div>
+            </div>
+            <div class="job-company">
+              威強電工業電腦股份有限公司　新北市汐止區
+            </div>
+
+            <div class="job-group-label">技術領導 &amp; 專案主導</div>
+            <ul class="job-desc">
+              <li>
+                負責 IRM Redundancy
+                前端核心機制實作，並協調前端團隊工作分配，確保開發品質與進度如期達成<br />Implemented
+                core frontend mechanisms for IRM Redundancy; coordinated team
+                task distribution to ensure quality and on-time delivery.
+              </li>
+              <li>
+                參與 IRM iVEC
+                前後端規格制定，負責資料結構與互動流程設計，從使用者角度提出潛在風險，提出調整建議，有效降低後續維護成本<br />Co-defined
+                frontend/backend specs for IRM iVEC; designed data structures
+                and interaction flows, raised potential risks from a user
+                perspective and proposed adjustments to effectively reduce
+                maintenance costs.
+              </li>
+              <li>
+                負責 IRM Recovery
+                核心功能設計與實作，規劃清晰直覺的操作流程與資訊呈現方式，提升整體使用者體驗<br />Designed
+                and implemented core features for IRM Recovery; crafted
+                intuitive user flows and information presentation to improve
+                overall UX.
+              </li>
+              <li>
+                負責 IRM HDD SMART
+                使用者介面設計，將複雜硬體狀態轉化為清晰易懂的視覺呈現，準確滿足
+                DPM 需求<br />Designed the IRM HDD SMART UI; translated complex
+                hardware states into clear visual representations that precisely
+                met DPM requirements.
+              </li>
+            </ul>
+
+            <div class="job-group-label">工程品質 &amp; 架構設計</div>
+            <ul class="job-desc">
+              <li>
+                能快速掌握複雜系統結構，在解跨功能模組的 bug
+                時能找到根本原因，提出系統性解決方案<br />Quickly grasps complex
+                system structures; identifies root causes when debugging
+                cross-module issues and proposes systematic solutions.
+              </li>
+              <li>
+                嚴格把控程式可讀性、效能與可維護性，主動處理邊界問題與錯誤防護，透過知識分享提升團隊整體開發品質<br />Strictly
+                controls code readability, performance, and maintainability;
+                proactively addresses edge cases and error handling, elevating
+                team quality through knowledge sharing.
+              </li>
+              <li>
+                從整體架構角度思考設計，確保模組具備良好擴展性，並持續優化既有系統、改善技術債<br />Approaches
+                design from a holistic architecture perspective; ensures module
+                extensibility and continuously refactors existing systems to
+                reduce technical debt.
+              </li>
+            </ul>
+
+            <div class="job-group-label">技術前瞻 &amp; 團隊協作</div>
+            <ul class="job-desc">
+              <li>
+                持續關注技術趨勢，能從產品需求出發評估並推動合適新技術，兼顧開發效率與長期維護成本<br />Stays
+                current with technology trends; evaluates and introduces new
+                technologies from a product-first perspective, balancing
+                development efficiency and long-term maintainability.
+              </li>
+              <li>
+                能有效整合團隊意見，針對技術方案提出具判斷力的建議，促進共識並推動專案順利前進<br />Effectively
+                synthesizes team input and provides well-reasoned technical
+                recommendations, building consensus and driving projects
+                forward.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">網頁前端工程師</div>
+              <div class="job-period">2017/8 – 2023/8・6年</div>
+            </div>
+            <div class="job-company">酷德科技股份有限公司　台北市文山區</div>
+            <ul class="job-desc">
+              <li>
+                General administrative affairs, include document handling, data
+                organization, or telephone / email handling.<br />一般行政事務，例如文件整理、檔案歸檔，或是電話應答、Email
+                處理。
+              </li>
+              <li>
+                Website development. Using HTML 5, CSS 3, and JavaScript ES6.<br />網站開發，基本的
+                HTML 5, CSS 3, 和 JavaScript ES6.
+              </li>
+              <li>
+                Testing APP, and bug detection. Through functional testing and
+                compatibility testing, find potential bugs and track these
+                bugs.<br />測試 APP 並找出 bug,
+                透過功能測試和兼容性測試，找出潛在的 bug 並追蹤他們。
+              </li>
+            </ul>
+            <div class="projects-label">主要前端專案</div>
+            <div class="project-grid">
+              <div class="project-item">
+                <div class="project-name">物業管理</div>
+                <div class="project-desc">
+                  物業管理後台，PC 端 Dashboard, mobile 端櫃檯使用功能
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">拍貼合框 v1, v2</div>
+                <div class="project-desc">
+                  管理後台 + end-user
+                  網頁，圖片操作、相框套用、雲端列印，PC/mobile 網頁
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">Wifi 6 Demo</div>
+                <div class="project-desc">
+                  全端，WebSocket 即時傳遞 iperf3 資料，圓餅圖視覺化
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">網管後台（世大運選手村）</div>
+                <div class="project-desc">
+                  A6/B5 大樓室內平面圖管理 AP/Switch 位置，AP/Switch 狀態管理
+                  Dashboard
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">北捷承租戶服務網</div>
+                <div class="project-desc">
+                  AWD 設計，oAuth 認證，與別公司使用 C# 合作前端
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">人潮流量統計</div>
+                <div class="project-desc">
+                  高雄龍虎塔，Leaflet 地圖 + 圖表顯示過客/住戶/遊客統計
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">線上測驗平台</div>
+                <div class="project-desc">
+                  WebSocket 即時傳送學生筆跡，支援老師平板批改
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">英文遊戲後台</div>
+                <div class="project-desc">
+                  後台 Dashboard, 管理出題、兌獎、關卡、活動
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">照片管理系統</div>
+                <div class="project-desc">
+                  全端，圖片操作 + 本地儲存，寫 API 供 App 串接，拍貼合框延伸
+                </div>
+              </div>
+              <div class="project-item">
+                <div class="project-name">爬蟲 / 形象官網</div>
+                <div class="project-desc">
+                  Selenium 自動抓取資料；各式形象官網、活動網頁；WordPress
+                  架站管理
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">產品管理主任</div>
+              <div class="job-period">2016/3 – 2017/4・1年2月</div>
+            </div>
+            <div class="job-company">趣遊網股份有限公司　台北市文山區</div>
+            <ul class="job-desc">
+              <li>規劃產品藍圖與發佈時程，定義 scope 並撰寫 spec</li>
+              <li>與 RD、Agoda / Booking.com 等合作夥伴溝通協調</li>
+              <li>
+                2016 年配合 Agoda extranet 改版，維持 210 properties
+                使用不受影響
+              </li>
+              <li>撰寫測試計畫、執行測試、追蹤 bug、分析 log</li>
+            </ul>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">軟體測試工程師</div>
+              <div class="job-period">2010/8 – 2011/9・1年2月</div>
+            </div>
+            <div class="job-company">
+              科立爾數位科技股份有限公司　台北市內湖區
+            </div>
+            <ul class="job-desc">
+              <li>
+                軟硬體測試（WinDVD），規劃測試計畫、撰寫報告、協助改善品質
+              </li>
+            </ul>
+          </div>
+
+          <!-- Job 5 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">工程師</div>
+              <div class="job-period">2008/10 – 2009/5・8月</div>
+            </div>
+            <div class="job-company">翔威國際股份有限公司　台北市文山區</div>
+            <ul class="job-desc">
+              <li>外派至華碩 eeepc linux build team</li>
+            </ul>
+          </div>
+
+          <!-- Job 6 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">行政業務研究助理</div>
+              <div class="job-period">2007/7 – 2008/6・1年</div>
+            </div>
+            <div class="job-company">趣遊網股份有限公司　台北市文山區</div>
+            <ul class="job-desc">
+              <li>行政、會計、業務庶務、客服；協助架設專案網站及軟體測試</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 推薦人 -->
+        <div class="section">
+          <div class="section-title">推薦人</div>
+          <div class="ref-box">
+            <div class="ref-avatar">柳</div>
+            <div>
+              <div class="ref-name">柳凱馨</div>
+              <div class="ref-role">研發部經理　證寶資訊</div>
+              <div class="ref-contact">02-2935-9009</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 作品連結 -->
+        <div class="section">
+          <div class="section-title">作品連結</div>
+          <div class="portfolio-grid">
+            <a
+              class="portfolio-card"
+              href="https://github.com/yusuke50/css-battle"
+              target="_blank"
+            >
+              <div class="portfolio-card-header">
+                <svg
+                  class="portfolio-icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span class="portfolio-card-title">css-battle</span>
+              </div>
+              <div class="portfolio-card-url">
+                github.com/yusuke50/css-battle
+              </div>
+              <div class="portfolio-card-note">每日 CSS 挑戰紀錄</div>
+            </a>
+            <a
+              class="portfolio-card"
+              href="https://codepen.io/yusuke50/pen/LYQKpmx"
+              target="_blank"
+            >
+              <div class="portfolio-card-header">
+                <svg
+                  class="portfolio-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                  />
+                </svg>
+                <span class="portfolio-card-title"
+                  >drawImage() with Canvas</span
+                >
+              </div>
+              <div class="portfolio-card-url">
+                codepen.io/yusuke50/pen/LYQKpmx
+              </div>
+              <div class="portfolio-card-note">Canvas API 圖片操作互動展示</div>
+            </a>
+            <a
+              class="portfolio-card"
+              href="https://github.com/yusuke50/stock_python"
+              target="_blank"
+            >
+              <div class="portfolio-card-header">
+                <svg
+                  class="portfolio-icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span class="portfolio-card-title">stock_python</span>
+              </div>
+              <div class="portfolio-card-url">
+                github.com/yusuke50/stock_python
+              </div>
+              <div class="portfolio-card-note">Python 股票資料抓取與分析</div>
+            </a>
+            <a
+              class="portfolio-card"
+              href="https://github.com/yusuke50/javascript-leetcode"
+              target="_blank"
+            >
+              <div class="portfolio-card-header">
+                <svg
+                  class="portfolio-icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span class="portfolio-card-title">javascript-leetcode</span>
+              </div>
+              <div class="portfolio-card-url">
+                github.com/yusuke50/javascript-leetcode
+              </div>
+              <div class="portfolio-card-note">
+                LeetCode JavaScript 練習紀錄
+              </div>
+            </a>
+            <a
+              class="portfolio-card"
+              href="https://github.com/yusuke50/cost-calculator"
+              target="_blank"
+            >
+              <div class="portfolio-card-header">
+                <svg
+                  class="portfolio-icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                <span class="portfolio-card-title">cost-calculator</span>
+              </div>
+              <div class="portfolio-card-url">
+                github.com/yusuke50/cost-calculator
+              </div>
+              <div class="portfolio-card-note">Vue.js 費用計算器</div>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
