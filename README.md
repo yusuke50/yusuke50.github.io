@@ -7,6 +7,7 @@ Online resume website built with HTML/CSS and deployed on GitHub Pages.
 ## File Structure
 
 ```
-index.html     # Main resume (all styles inline, no dependencies)
+index.html     # Main resume
+index.css      # styles
 README.md
 ```
